@@ -16,6 +16,10 @@ function Tasks(props){
 
     let content = taskList;
 
+    if(props.isError){
+        content = <button onClick={props.onFetch} >Try again</button>
+    }
+
     if(props.isLoading){
         content = 'Loading tasks...'
     }
