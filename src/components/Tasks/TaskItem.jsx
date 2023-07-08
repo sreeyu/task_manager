@@ -1,9 +1,10 @@
 import React from "react";
+import styles from './TaskItem.module.css'
 
 function TaskItem(props){
 
     return(
-        <li>{props.children}</li>
+        <li className={styles.task} >{props.children}</li>
     );
 };
 
