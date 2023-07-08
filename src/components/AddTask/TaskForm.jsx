@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import styles from './TaskForm.module.css'
 
 function TaskForm(props){
 
@@ -16,7 +17,7 @@ function TaskForm(props){
     }
 
     return(
-        <form onSubmit={submitTask} >
+        <form className={styles.form} onSubmit={submitTask} >
             <input type="text" ref={task} />
             <button>{props.isLoading ? 'Sending...' : 'Add Task'}</button>
         </form>
