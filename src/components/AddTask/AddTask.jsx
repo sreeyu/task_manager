@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TaskForm from "./TaskForm";
+import Section from "../UI/Section";
 
 function AddTask(props){
 
@@ -39,10 +40,10 @@ function AddTask(props){
     }
 
     return(
-        <div>
+        <Section>
             <TaskForm onAddTask={getNewTask} isLoading={loading} />
             {error && <p>{error}</p>}
-        </div>
+        </Section>
     );
 };
 

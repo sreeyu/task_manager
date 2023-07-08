@@ -1,5 +1,6 @@
 import React from "react";
 import TaskItem from "./TaskItem";
+import Section from "../UI/Section";
 
 function Tasks(props){
 
@@ -25,7 +26,9 @@ function Tasks(props){
     }
 
     return(
-        <div>{content}</div>
+        <Section>
+            <div>{content}</div>
+        </Section>
     )
 };
 
