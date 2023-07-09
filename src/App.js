@@ -1,41 +1,25 @@
 import React, { useEffect, useState } from "react";
 import AddTask from "./components/AddTask/AddTask";
 import Tasks from "./components/Tasks/Tasks";
+import useHttp from "./hooks/use-http";
 
 function App() {
 
   const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  const fetchTask = async() => {
+  const transformedTask = (taskObj) => {
+    const loadedTask = [];
 
-    setLoading(true);
-    setError(null);
-
-    try{
-      const response = await fetch(
-        'https://taskmanager-72f8e-default-rtdb.firebaseio.com/tasks.json'
-      );
-  
-      if(!response.ok){
-        throw new Error('Request failed!');
-      }
-  
-      const data = await response.json();
-
-      const loadedTask = [];
-
-      for(const taskKey in data){
-        loadedTask.push({id: taskKey, text: data[taskKey].text});
+      for(const taskKey in taskObj){
+        loadedTask.push({id: taskKey, text: taskObj[taskKey].text});
       }
 
-      setTasks(loadedTask)
-    } catch (err){
-      setError(err.message || 'Something went wrong!')
-    }
-    setLoading(false);
+      setTasks(loadedTask);
   };
+  
+  const {loading, error, sendRequest: fetchTask} = useHttp({url: 'https://taskmanager-72f8e-default-rtdb.firebaseio.com/tasks.json'}, transformedTask)
+
+  
 
   useEffect(() => {
     fetchTask();
