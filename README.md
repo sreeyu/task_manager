@@ -15,7 +15,7 @@ Task Manager is a simple and intuitive task management application built with Re
 - JavaScript
 
 ## Live Demo
-Check out the live demo of the Task Manager application [here](https://your-task-manager-url.com).
+Check out the live demo of the Task Manager application [here](https://sreeyu.github.io/task_manager).
 
 ## Getting Started
 1. Clone the repository: `git clone https://github.com/sreeyu/task_manager.git`
